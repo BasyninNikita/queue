@@ -70,12 +70,12 @@ T & queue_t<T>::pop()
 	{
 	throw std::logic_error("can't delete");	
 	}
-   	T a=head->value;
-	node_t * node=head;
-	head=head->next;
+   	T a = head->value;
+        node_t* node = head;
+        head = head->next;
 	if(head == nullptr){tail = nullptr;}
-	delete node;
-	return a;
+        delete node;
+        return a;
 }
 template <typename T>
 queue_t<T>&queue_t<T>::operator=(queue_t & other)
