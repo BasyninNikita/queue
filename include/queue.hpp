@@ -17,7 +17,7 @@ public:
 	queue_t(queue_t<T> const & other);
 	~queue_t();
 	void push(T value);
-	T pop();
+	T & pop();
 	node_t * head_() {return head;}
 	node_t * tail_() {return tail;}
 	queue_t & operator=(queue_t const & other);
@@ -68,7 +68,7 @@ T & queue_t<T>::pop()
 {
 	if(head==nullptr)
 	{
-	throw std::logic_error("can't delete")	
+	throw std::logic_error("can't delete");	
 	}
    	T a=head->value;
 	node_t * node=head;
@@ -77,7 +77,7 @@ T & queue_t<T>::pop()
 	return a;
 }
 template <typename T>
-queue_t<T>&queue_t<T>::operator=(queue_t const & other)
+queue_t<T>&queue_t<T>::operator=(queue_t & other)
 {
 	if(other.head_() != nullptr){
 		this->~queue_t();
