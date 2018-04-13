@@ -14,6 +14,7 @@ private:
 	node_t * tail;
 public:
 	queue_t();
+	queue_t(queue_t<T> const & other);
 	~queue_t();
 	void push(T value);
 	void pop();
@@ -67,7 +68,7 @@ void queue_t<T>::pop()
 {
 	if(head==nullptr)
 	{
-	throw Error("can't delete")	
+	throw std::logic_error("can't delete")	
 	}
    	T a=head->value;
 	node_t * node=head;
