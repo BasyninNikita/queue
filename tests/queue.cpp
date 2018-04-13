@@ -3,16 +3,16 @@
 
 #include "queue.hpp"
 
-TEST_CASE("creating vector")
+TEST_CASE("creating queue")
 {
-	queue<int> queue;
+	queue_t<int> queue;
 	REQUIRE( queue.head() == nullptr);
 	REQUIRE( queue.tail() == nullptr);
 }
 
 TEST_CASE("pop and push")
 {
-	queue<int> queue;
+	queue_t<int> queue;
 	queue.push(1);
 	queue.push(2);
 	int sum=queue.pop;
@@ -22,7 +22,7 @@ TEST_CASE("pop and push")
 TEST_CASE("throw")
 {
 	queue_t<int> queue;
-	REQUIRE_THROWS_AS( q.pop() , std::logic_error);
+	REQUIRE_THROWS_AS( queue.pop() , std::logic_error);
 }
 
 TEST_CASE("copy")
