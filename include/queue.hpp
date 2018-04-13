@@ -20,7 +20,7 @@ public:
 	T & pop();
 	node_t * head_() {return head;}
 	node_t * tail_() {return tail;}
-	queue_t & operator=(queue_t const & other);
+	queue_t & operator=(queue_t & other);
 };
 template <typename T>
 queue_t<T>::queue_t()
