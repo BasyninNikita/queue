@@ -17,7 +17,7 @@ public:
 	queue_t(queue_t<T> const & other);
 	~queue_t();
 	void push(T value);
-	void pop();
+	T pop();
 	node_t * head_() {return head;}
 	node_t * tail_() {return tail;}
 	queue_t & operator=(queue_t const & other);
