@@ -73,6 +73,7 @@ T & queue_t<T>::pop()
    	T a=head->value;
 	node_t * node=head;
 	head=head->next;
+	if(head == nullptr){tail = nullptr;}
 	delete node;
 	return a;
 }
