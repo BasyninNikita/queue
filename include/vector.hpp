@@ -17,6 +17,9 @@ public:
 	~vector_t();
 	void push(T value);
 	void pop();
+	node_t * head_() {return head;}
+	node_t * tail_() {return tail;}
+	queue_t & operator=(queue_t const & other;
 };
 template <typename T>
 queue_t<T>::queue_t()
@@ -25,42 +28,22 @@ queue_t<T>::queue_t()
 	tail=nullptr;
 }
 template <typename T>
-queue_t<T>::queue_t()
+queue_t<T>::queue_t(queue_t<T> const & other)
 {
-	node_t * node=other.head;
-	head=new node_t;
-	head->value=node->value;
-	head-next=nullptr;
-	tail=head;
-	node=node->next;
-	while(node!=nullptr)
-	{
-		tail->next=new node_t;
-		tail = tail->next;
-		tail->value = node->value;
-		tail->next = nullptr;
-		node = node->next;	
-	}
+	node_t* node = other.head_();
+        while(node != nullptr){
+		push(node->value);
+		node = node->next;
+	}	
 }
 template <typename T>
 queue_t<T>::~queue_t()
 {
-	if(head!=nullptr)
-	{
-		destr(head);
-	}
-}
-template <typename T>
-void queue_t<T>::destr(node_t * node)
-{
-	if(node!=nullptr)
-	{
-		if(node->next!=nullptr)
-		{
-			del(node->next)
-		}
-		delete node;
-	}
+	while(head != nullptr){
+            node_t* node = head;
+            head = head->next;
+            delete node;
+        }
 }
 template <typename T>
 void queue_t<T>::push(T value)
@@ -92,6 +75,18 @@ void queue_t<T>::pop()
 	delete node;
 	return a;
 }
-
+template <typename T>
+queue_t<T>&queue_t<T>::operator=(tree_t const & other)
+{
+	if(other.head_() != nullptr){
+		this->~queue_t();
+        }
+        node_t* node = other.head_();
+        while(node != nullptr){
+		push(node->value);
+		node = node->next;
+	}
+        return *this;	
+}
 
 
