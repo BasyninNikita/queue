@@ -20,8 +20,6 @@ public:
 	void pop();
 	node_t * head_() {return head;}
 	node_t * tail_() {return tail;}
-	T head_val(node_t* head_){return head_->value;}
-	T tail_val(node_t* head_){return head_->value;}
 	queue_t & operator=(queue_t const & other);
 };
 template <typename T>
@@ -66,7 +64,7 @@ void queue_t<T>::push(T value)
 	}
 }
 template <typename T>
-void queue_t<T>::pop()
+T & queue_t<T>::pop()
 {
 	if(head==nullptr)
 	{
