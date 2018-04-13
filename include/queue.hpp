@@ -13,13 +13,13 @@ private:
 	node_t * head;
 	node_t * tail;
 public:
-	vector_t();
-	~vector_t();
+	queue_t();
+	~queue_t();
 	void push(T value);
 	void pop();
 	node_t * head_() {return head;}
 	node_t * tail_() {return tail;}
-	queue_t & operator=(queue_t const & other;
+	queue_t & operator=(queue_t const & other);
 };
 template <typename T>
 queue_t<T>::queue_t()
@@ -50,16 +50,16 @@ void queue_t<T>::push(T value)
 {
 	if(head==nullptr)
 	{
-		head=new node_t
+		head=new node_t;
 		head->value=value;
 		head->next=nullptr;
 		tail=head;
 	}
 	else {
-		tail->next=new node_t
+		tail->next=new node_t;
 		tail=tail->next;
 		tail->value=value;
-		tail.next=nullptr;
+		tail->next=nullptr;
 	}
 }
 template <typename T>
@@ -67,16 +67,16 @@ void queue_t<T>::pop()
 {
 	if(head==nullptr)
 	{
-	throw error("can't delete")	
+	throw Error("can't delete")	
 	}
    	T a=head->value;
-	node_t * node=head
+	node_t * node=head;
 	head=head->next;
 	delete node;
 	return a;
 }
 template <typename T>
-queue_t<T>&queue_t<T>::operator=(tree_t const & other)
+queue_t<T>&queue_t<T>::operator=(queue_t const & other)
 {
 	if(other.head_() != nullptr){
 		this->~queue_t();
