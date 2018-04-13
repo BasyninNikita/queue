@@ -21,8 +21,8 @@ TEST_CASE("pop and push")
 }
 TEST_CASE("throw")
 {
-	queue_t<int> q;
-	REQUIRE_THROWS_AS( q.pop() , Error);
+	queue_t<int> queue;
+	REQUIRE_THROWS_AS( q.pop() , std::logic_error);
 }
 
 TEST_CASE("copy")
@@ -30,7 +30,8 @@ TEST_CASE("copy")
 	queue_t<int> queue;
 	queue.push(1);
 	queue.push(2);
-	queue_t<int> queue1(queue);
+	queue_t<int> queue1;
+	queue1=queue;
 	int sum = queue1.pop();
 	sum = sum + queue1.pop();
 	REQUIRE( sum == 3 );
