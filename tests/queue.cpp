@@ -33,7 +33,7 @@ TEST_CASE("copy")
 	queue.push(2);
 	queue_t<int> queue1;
 	queue1=queue;
-	REQUIRE( queue.pop()==1 );
-	REQUIRE( queue.pop()==2 );
+	REQUIRE( queue1.pop()==1 );
+	REQUIRE( queue1.pop()==2 );
 }
 
