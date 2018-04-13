@@ -6,8 +6,8 @@
 TEST_CASE("creating queue")
 {
 	queue_t<int> queue;
-	REQUIRE( queue.head() == nullptr);
-	REQUIRE( queue.tail() == nullptr);
+	REQUIRE( queue.head_() == nullptr);
+	REQUIRE( queue.tail_() == nullptr);
 }
 
 TEST_CASE("pop and push")
@@ -15,8 +15,8 @@ TEST_CASE("pop and push")
 	queue_t<int> queue;
 	queue.push(1);
 	queue.push(2);
-	int sum=queue.pop;
-	sum+=queue.pop;
+	int sum=queue.pop();
+	sum+=queue.pop();
 	REQUIRE( sum == 3 );
 }
 TEST_CASE("throw")
