@@ -15,7 +15,7 @@ TEST_CASE("pop and push")
 	queue_t<int> queue;
 	queue.push(1);
 	queue.push(2);
-	int sum=queue.pop();
+	<int> sum=queue.pop();
 	sum+=queue.pop();
 	REQUIRE( sum == 3 );
 }
@@ -32,7 +32,7 @@ TEST_CASE("copy")
 	queue.push(2);
 	queue_t<int> queue1;
 	queue1=queue;
-	int sum = queue1.pop();
+	<int> sum = queue1.pop();
 	sum = sum + queue1.pop();
 	REQUIRE( sum == 3 );
 	
